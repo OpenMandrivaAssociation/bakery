@@ -1,10 +1,11 @@
 %define name 	bakery
-%define version 2.4.1
-%define release %mkrel 2
+%define version 2.4.2
+%define release %mkrel 1
 
 %define api 2.4
 %define major 	1
 %define libname %mklibname %name %{api}_%major
+%define develname %mklibname -d %name %{api}
 
 Summary: 	C++ Framework for Document-based GNOME applications
 Name: 		%name
@@ -32,15 +33,16 @@ Summary:	C++ Framework for document-based GNOME applications
 A C++ Framework for Document-based GNOME applications, using gtkmm. It allows
 use of the Document/View architecture.
 
-%package -n %libname-devel
+%package -n %develname
 Group:          Development/C++
 Summary:        Static libraries and header files from %name
 Provides:       %name-devel = %version-%release
 Provides:	lib%name-devel = %version-%release
 Provides:	libbakery%{api}-devel = %version-%release
 Requires:       %libname = %version
+Obsoletes: %mklibname -d 2.4_1
 
-%description -n %libname-devel
+%description -n %develname
 Static libraries and headers from %name.
 
 %prep
@@ -66,13 +68,13 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS COPYING NEWS README
 %_libdir/libbakery-%{api}-%{api}.so.%{major}*
 
-%files -n %libname-devel
+%files -n %develname
 %defattr(-,root,root)
 %doc docs/*.html
 %_libdir/*.so
 %attr(644,root,root) %_libdir/*.la
 %_libdir/*.a
 %_libdir/pkgconfig/*.pc
+%_libdir/bakery-%{api}
 %_includedir/%name-2.4/%name/*
-
 
