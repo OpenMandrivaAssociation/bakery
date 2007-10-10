@@ -1,6 +1,6 @@
 %define name 	bakery
 %define version 2.4.2
-%define release %mkrel 1
+%define release %mkrel 2
 
 %define api 2.4
 %define major 	1
@@ -40,7 +40,7 @@ Provides:       %name-devel = %version-%release
 Provides:	lib%name-devel = %version-%release
 Provides:	libbakery%{api}-devel = %version-%release
 Requires:       %libname = %version
-Obsoletes: %mklibname -d 2.4_1
+Obsoletes: %mklibname -d bakery 2.4_1
 
 %description -n %develname
 Static libraries and headers from %name.
