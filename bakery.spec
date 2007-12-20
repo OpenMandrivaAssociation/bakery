@@ -19,6 +19,7 @@ BuildRequires:	gtkmm2.4-devel gconfmm2.6-devel libglademm-devel >= 2.4
 BuildRequires:	libxml++-devel >= 2.6 gnome-vfsmm2.6-devel
 BuildRequires:	libexpat-devel
 BuildRequires:	libsm-devel
+Buildroot: 	%_tmppath/%name-%version-buildroot
 
 %description
 A C++ Framework for Document-based GNOME applications, using gtkmm. It allows
