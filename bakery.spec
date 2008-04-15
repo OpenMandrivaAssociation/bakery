@@ -1,8 +1,8 @@
 %define name 	bakery
-%define version 2.4.4
+%define version 2.5.1
 %define release %mkrel 1
 
-%define api 2.4
+%define api 2.6
 %define major 	1
 %define libname %mklibname %name %{api}_%major
 %define develname %mklibname -d %name %{api}
@@ -16,7 +16,8 @@ License: 	GPL
 Group: 		System/Libraries
 Source: 	http://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.bz2
 BuildRequires:	gtkmm2.4-devel gconfmm2.6-devel libglademm-devel >= 2.4 
-BuildRequires:	libxml++-devel >= 2.6 gnome-vfsmm2.6-devel
+BuildRequires:	libxml++-devel >= 2.23.1
+BuildRequires:  gnome-vfsmm2.6-devel
 BuildRequires:	libexpat-devel
 BuildRequires:	libsm-devel
 Buildroot: 	%_tmppath/%name-%version-buildroot
@@ -66,7 +67,7 @@ rm -rf $RPM_BUILD_ROOT
 %files -n %libname -f %name.lang
 %defattr(-,root,root)
 %doc AUTHORS COPYING NEWS README
-%_libdir/libbakery-%{api}-%{api}.so.%{major}*
+%_libdir/libbakery-%{api}-.5.so.%{major}*
 
 %files -n %develname
 %defattr(-,root,root)
@@ -76,5 +77,5 @@ rm -rf $RPM_BUILD_ROOT
 %_libdir/*.a
 %_libdir/pkgconfig/*.pc
 %_libdir/bakery-%{api}
-%_includedir/%name-2.4/%name/*
+%_includedir/%name-%api/%name/*
 
