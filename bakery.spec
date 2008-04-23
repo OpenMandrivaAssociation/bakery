@@ -77,5 +77,5 @@ rm -rf $RPM_BUILD_ROOT
 %_libdir/*.a
 %_libdir/pkgconfig/*.pc
 %_libdir/bakery-%{api}
-%_includedir/%name-%api/%name/*
+%_includedir/%name-%api/
 
