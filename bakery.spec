@@ -1,10 +1,11 @@
 %define name 	bakery
-%define version 2.5.1
-%define release %mkrel 2
+%define version 2.6.0
+%define release %mkrel 1
 
 %define api 2.6
+%define api2 6
 %define major 	1
-%define libname %mklibname %name %{api}_%major
+%define libname %mklibname %name %{api}_%{api2}_%major
 %define develname %mklibname -d %name %{api}
 
 Summary: 	C++ Framework for Document-based GNOME applications
@@ -71,7 +72,7 @@ rm -rf $RPM_BUILD_ROOT
 %files -n %libname -f %name.lang
 %defattr(-,root,root)
 %doc AUTHORS COPYING NEWS README
-%_libdir/libbakery-%{api}-.5.so.%{major}*
+%_libdir/libbakery-%{api}-.%{api2}.so.%{major}*
 
 %files -n %develname
 %defattr(-,root,root)
