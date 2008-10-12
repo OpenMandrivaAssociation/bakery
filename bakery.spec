@@ -21,6 +21,7 @@ BuildRequires:	libxml++-devel >= 2.23.1
 BuildRequires:  gnome-vfsmm2.6-devel
 BuildRequires:	libexpat-devel
 BuildRequires:	libsm-devel
+BuildRequires:	intltool
 Buildroot: 	%_tmppath/%name-%version-buildroot
 
 %description
