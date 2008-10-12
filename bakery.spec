@@ -13,7 +13,7 @@ Name: 		%name
 Version: 	%version
 Release: 	%release
 Url: 		http://bakery.sourceforge.net/
-License: 	GPL
+License: 	LGPLv2+
 Group: 		System/Libraries
 Source: 	http://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.bz2
 BuildRequires:	gtkmm2.4-devel gconfmm2.6-devel libglademm-devel >= 2.4 
