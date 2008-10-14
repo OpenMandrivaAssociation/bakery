@@ -1,6 +1,6 @@
 %define name 	bakery
 %define version 2.6.0
-%define release %mkrel 1
+%define release %mkrel 2
 
 %define api 2.6
 %define api2 6
@@ -28,9 +28,17 @@ Buildroot: 	%_tmppath/%name-%version-buildroot
 A C++ Framework for Document-based GNOME applications, using gtkmm. It allows
 use of the Document/View architecture.
 
+%package i18n
+Summary: C++ Framework for document-based GNOME applications
+Group: System/Internationalization
+
+%description i18n
+This package contains the translations for %name.
+
 %package -n	%libname
 Group:		System/Libraries
 Summary:	C++ Framework for document-based GNOME applications
+Requires: %{name}-i18n >= %{version}
 
 %description -n %libname
 A C++ Framework for Document-based GNOME applications, using gtkmm. It allows
@@ -70,7 +78,9 @@ rm -rf $RPM_BUILD_ROOT
 %postun -n %libname -p /sbin/ldconfig
 %endif
 
-%files -n %libname -f %name.lang
+%files i18n -f %{name}.lang
+
+%files -n %libname
 %defattr(-,root,root)
 %doc AUTHORS COPYING NEWS README
 %_libdir/libbakery-%{api}-.%{api2}.so.%{major}*
