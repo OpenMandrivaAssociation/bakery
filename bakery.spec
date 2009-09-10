@@ -1,6 +1,6 @@
 %define name 	bakery
 %define version 2.6.3
-%define release %mkrel 1
+%define release %mkrel 2
 
 %define api 2.6
 %define api2 6
