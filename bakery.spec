@@ -1,6 +1,6 @@
 %define name 	bakery
 %define version 2.6.3
-%define release %mkrel 3
+%define release 4
 
 %define api 2.6
 %define api2 6
@@ -22,7 +22,6 @@ BuildRequires:  gnome-vfsmm2.6-devel
 BuildRequires:	libexpat-devel
 BuildRequires:	libsm-devel
 BuildRequires:	intltool
-Buildroot: 	%_tmppath/%name-%version-buildroot
 
 %description
 A C++ Framework for Document-based GNOME applications, using gtkmm. It allows
@@ -64,19 +63,8 @@ Static libraries and headers from %name.
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT
 %makeinstall
 %find_lang %name
-
-%clean
-rm -rf $RPM_BUILD_ROOT
-
-%if %mdkversion < 200900
-%post -n %libname -p /sbin/ldconfig
-%endif
-%if %mdkversion < 200900
-%postun -n %libname -p /sbin/ldconfig
-%endif
 
 %files i18n -f %{name}.lang
 
@@ -89,9 +77,87 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root)
 %doc docs/*.html
 %_libdir/*.so
-%attr(644,root,root) %_libdir/*.la
 %_libdir/*.a
 %_libdir/pkgconfig/*.pc
 %_libdir/bakery-%{api}
 %_includedir/%name-%api/
+
+
+
+%changelog
+* Mon Sep 12 2011 Götz Waschk <waschk@mandriva.org> 2.6.3-3mdv2012.0
++ Revision: 699459
+- rebuild
+
+* Thu Sep 10 2009 Thierry Vignaud <tv@mandriva.org> 2.6.3-2mdv2011.0
++ Revision: 436766
+- rebuild
+
+* Tue Feb 10 2009 Götz Waschk <waschk@mandriva.org> 2.6.3-1mdv2009.1
++ Revision: 339222
+- update to new version 2.6.3
+
+* Fri Dec 12 2008 Funda Wang <fwang@mandriva.org> 2.6.2-1mdv2009.1
++ Revision: 313551
+- new version 2.6.2
+
+* Mon Dec 08 2008 Götz Waschk <waschk@mandriva.org> 2.6.1-1mdv2009.1
++ Revision: 311948
+- new version
+- update to new version 2.6.1
+
+* Sat Nov 08 2008 Oden Eriksson <oeriksson@mandriva.com> 2.6.0-3mdv2009.1
++ Revision: 301022
+- rebuilt against new libxcb
+
+* Tue Oct 14 2008 Götz Waschk <waschk@mandriva.org> 2.6.0-2mdv2009.1
++ Revision: 293578
+- split out translations
+
+* Sun Oct 12 2008 Götz Waschk <waschk@mandriva.org> 2.6.0-1mdv2009.1
++ Revision: 292956
+- fix license
+- fix build deps
+- new version
+- new major
+
+* Thu Aug 07 2008 Thierry Vignaud <tv@mandriva.org> 2.5.1-2mdv2009.0
++ Revision: 266235
+- rebuild early 2009.0 package (before pixel changes)
+
+  + Pixel <pixel@mandriva.com>
+    - do not call ldconfig in %%post/%%postun, it is now handled by filetriggers
+
+  + Götz Waschk <waschk@mandriva.org>
+    - fix directory ownership
+
+* Tue Apr 15 2008 Götz Waschk <waschk@mandriva.org> 2.5.1-1mdv2009.0
++ Revision: 193790
+- new version
+- bump deps
+- new api version
+
+* Sun Jan 13 2008 Götz Waschk <waschk@mandriva.org> 2.4.4-1mdv2008.1
++ Revision: 151042
+- new version
+
+  + Olivier Blin <blino@mandriva.org>
+    - restore BuildRoot
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - kill re-definition of %%buildroot on Pixel's request
+
+* Wed Nov 28 2007 Götz Waschk <waschk@mandriva.org> 2.4.3-1mdv2008.1
++ Revision: 113667
+- new version
+
+* Wed Oct 10 2007 Götz Waschk <waschk@mandriva.org> 2.4.2-2mdv2008.1
++ Revision: 96827
+- fix obsoleting the old devel package
+
+* Fri Oct 05 2007 Götz Waschk <waschk@mandriva.org> 2.4.2-1mdv2008.1
++ Revision: 95565
+- new version
+- new devel name
+- update file list
 
