@@ -12,7 +12,7 @@ Summary: 	C++ Framework for Document-based GNOME applications
 Name: 		%name
 Version: 	%version
 Release: 	%release
-Url: 		http://bakery.sourceforge.net/
+Url: 		https://bakery.sourceforge.net/
 License: 	LGPLv2+
 Group: 		System/Libraries
 Source: 	http://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.bz2
